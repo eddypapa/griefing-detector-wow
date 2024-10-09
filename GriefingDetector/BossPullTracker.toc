@@ -1,0 +1,7 @@
+## Interface: 110002
+## Title: GriefingDetector
+## Notes: Notifies when someone pulls or aggros a boss
+## Author: eddypapa
+## Version: 0.1
+
+BossPullNotifier.lua
