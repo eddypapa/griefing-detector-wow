@@ -4,4 +4,9 @@
 ## Author: eddypapa
 ## Version: 0.1
 
-BossPullNotifier.lua
+Core.lua
+Events.lua
+Options.lua
+Messages.lua
+Exceptions.lua
+Spells.lua
