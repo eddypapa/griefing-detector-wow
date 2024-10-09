@@ -1,5 +1,5 @@
 -- Pull varázslatok spell ID-i
-BossPullNotifier.pullSpells = {
+GriefingDetector.pullSpells = {
     [75] = true,     -- Auto Shot
     [5019] = true,   -- Shoot
     [6673] = true,   -- Battle Shout

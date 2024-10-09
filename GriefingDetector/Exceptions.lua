@@ -1,5 +1,5 @@
 -- Kivételkezelés
-function BossPullNotifier:IsPlayerException(playerName, roleCheck)
+function GriefingDetector:IsPlayerException(playerName, roleCheck)
     if UnitIsGroupLeader(playerName) or UnitIsAssistant(playerName) then
         return true
     end

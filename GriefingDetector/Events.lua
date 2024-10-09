@@ -1,8 +1,8 @@
 -- Eseménykezelő függvény
-function BossPullNotifier:OnEvent(event, ...)
+function GriefingDetector:OnEvent(event, ...)
     if event == "PLAYER_LOGIN" then
         self:LoadSettings()
-        if BossPullNotifierDB.enabled then
+        if GriefingDetectorDB.enabled then
             self.frame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
         else
             self.frame:UnregisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
@@ -20,8 +20,8 @@ function BossPullNotifier:OnEvent(event, ...)
 end
 
 -- Harci napló esemény kezelése
-function BossPullNotifier:OnCombatLogEvent(...)
-    if not BossPullNotifierDB.enabled then return end
+function GriefingDetector:OnCombatLogEvent(...)
+    if not GriefingDetectorDB.enabled then return end
 
     local timestamp, subevent, _, sourceGUID, sourceName, _, _, destGUID, destName, destFlags, _, spellID = CombatLogGetCurrentEventInfo()
 
@@ -36,7 +36,7 @@ function BossPullNotifier:OnCombatLogEvent(...)
         end
     end
 
-    -- Pull detektálása
+    -- Pull vagy aggro detektálása
     if self.bossIDs[destGUID] and sourceName then
         if (subevent == "SPELL_CAST_SUCCESS" or subevent == "SPELL_DAMAGE") and self.pullSpells[spellID] then
             self:SendMessage(sourceName, "pull")
@@ -49,6 +49,6 @@ function BossPullNotifier:OnCombatLogEvent(...)
 end
 
 -- Eseménykezelő hozzárendelése
-BossPullNotifier.frame:SetScript("OnEvent", function(self, event, ...)
-    BossPullNotifier:OnEvent(event, ...)
+GriefingDetector.frame:SetScript("OnEvent", function(self, event, ...)
+    GriefingDetector:OnEvent(event, ...)
 end)

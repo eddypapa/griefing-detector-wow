@@ -10,3 +10,8 @@ Options.lua
 Messages.lua
 Exceptions.lua
 Spells.lua
+Locales/huHU.lua
+Locales/enUS.lua
+Locales/deDE.lua
+Locales/frFR.lua
+Locales/esES.lua
